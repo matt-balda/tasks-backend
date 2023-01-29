@@ -21,6 +21,16 @@ pipeline {
                 }
             }
         }
+        stage ('Quality Gate') {
+            environment {
+                scannerHome = tool 'SONAR_SCANNER'
+            }
+            steps {
+                timeout(time: 1, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline:true
+                }
+            }
+        }
     }
 }
 
