@@ -26,7 +26,7 @@ pipeline {
                 scannerHome = tool 'SONAR_SCANNER'
             }
             steps {
-                sleep(20)
+                sleep(35)
                 timeout(time: 1, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline:true
                 }
